@@ -25,14 +25,14 @@ function App() {
 
   useEffect(() => {
     getFetch();
-    console.log(value);
+    // console.log(value);
   }, []);
 
   const getFetch = async () => {
     const result = await axios.get(
       "https://banking-course.herokuapp.com/services/getBankServices"
     );
-
+    console.log(result.data);
     setValue([...result.data]);
   };
 
