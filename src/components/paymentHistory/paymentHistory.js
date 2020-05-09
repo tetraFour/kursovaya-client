@@ -26,7 +26,7 @@ export default function PaymentHistory({ userUniqueId }) {
 
   const getFetch = async () => {
     const result = await axios.get(
-      `http://localhost:5000/payment_history/getHistory/${userUniqueId}`
+      `https://banking-course.herokuapp.com/payment_history/getHistory/${userUniqueId}`
     );
     setHistory([...result.data]);
   };

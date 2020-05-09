@@ -30,7 +30,7 @@ export default function PaymentServices({ userUniqueId }) {
     async function getFetch() {
       try {
         const result = await axios.get(
-          "http://localhost:5000/services/getBankServices"
+          "https://banking-course.herokuapp.com/services/getBankServices"
         );
         setRows(result.data);
         setIsProductsLoaded(true);

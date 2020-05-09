@@ -64,7 +64,7 @@ function ConfirmationDialogRaw(props) {
       onClose(value);
       handleClose();
       const result = await axios.put(
-        `http://localhost:5000/cards/transferMoney/${id}`,
+        `https://banking-course.herokuapp.com/cards/transferMoney/${id}`,
         {
           transferMoney,
           cardNumber: value,
@@ -73,7 +73,7 @@ function ConfirmationDialogRaw(props) {
       await getCards();
       handleClickOpenSnackbar(result.data.responseContent, "success");
       await axios.post(
-        `http://localhost:5000/payment_history/createPaymentHistory/1`,
+        `https://banking-course.herokuapp.com/payment_history/createPaymentHistory/1`,
         { info: "успешный перевод на другую карту", cost: transferMoney }
       );
     } catch (error) {

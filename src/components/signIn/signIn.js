@@ -14,7 +14,7 @@ import { useSnackbar } from "notistack";
 
 import { useStyles } from "./signIn.styles";
 
-const GET_TOKEN_URL = "http://localhost:5000/auth/getToken";
+const GET_TOKEN_URL = "https://banking-course.herokuapp.com/auth/getToken";
 
 export default function SignIn({ isAuth, setIsAuth, setUserUniqueId }) {
   const classes = useStyles();

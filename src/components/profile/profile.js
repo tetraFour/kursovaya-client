@@ -12,7 +12,8 @@ import Typography from "@material-ui/core/Typography";
 
 import { useStyles } from "./profile.styles";
 
-const URL_GET_USER_WITH_TOKEN = "http://localhost:5000/auth/getUser";
+const URL_GET_USER_WITH_TOKEN =
+  "https://banking-course.herokuapp.com/auth/getUser";
 
 const Profile = ({ setIsAuth, userUniqueId }) => {
   const classes = useStyles();
@@ -43,7 +44,7 @@ const Profile = ({ setIsAuth, userUniqueId }) => {
   async function getCards() {
     try {
       const cards = await axios.get(
-        `http://localhost:5000/cards/getCards/${userUniqueId}`
+        `https://banking-course.herokuapp.com/cards/getCards/${userUniqueId}`
       );
 
       setUserCards([...cards.data]);

@@ -23,18 +23,18 @@ function App() {
 
   const [value, setValue] = useState([]);
 
-  useEffect(() => {
-    getFetch();
-    // console.log(value);
-  }, []);
+  // useEffect(() => {
+  //   getFetch();
+  //   // console.log(value);
+  // }, []);
 
-  const getFetch = async () => {
-    const result = await axios.get(
-      "https://banking-course.herokuapp.com/services/getBankServices"
-    );
-    console.log(result.data);
-    setValue([...result.data]);
-  };
+  // const getFetch = async () => {
+  //   const result = await axios.get(
+  //     "https://banking-course.herokuapp.com/services/getBankServices"
+  //   );
+  //   console.log(result.data);
+  //   setValue([...result.data]);
+  // };
 
   return (
     <div className="App">

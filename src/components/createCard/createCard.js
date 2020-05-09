@@ -64,7 +64,7 @@ export default function PaymentForm({ userUniqueId }) {
       try {
         await axios({
           method: "post",
-          url: "http://localhost:5000/cards/createCard",
+          url: "https://banking-course.herokuapp.com/cards/createCard",
           data: {
             cardOwner: username.value.toUpperCase(),
             cardNumber: cardNumber.value,

@@ -98,7 +98,7 @@ function ConfirmationDialogRaw(props) {
   async function getCards() {
     try {
       const cards = await axios.get(
-        `http://localhost:5000/cards/getCards/${userUniqueId}`
+        `https://banking-course.herokuapp.com/cards/getCards/${userUniqueId}`
       );
 
       setUserCards([...cards.data]);
@@ -129,13 +129,13 @@ function ConfirmationDialogRaw(props) {
   const handleOk = async () => {
     try {
       const result = await axios.put(
-        `http://localhost:5000/cards/withdrawMoney/${value}`,
+        `https://banking-course.herokuapp.com/cards/withdrawMoney/${value}`,
         {
           withdrawMoney: servicePrice,
         }
       );
       await axios.post(
-        `http://localhost:5000/payment_history/createPaymentHistory/${userUniqueId}`,
+        `https://banking-course.herokuapp.com/payment_history/createPaymentHistory/${userUniqueId}`,
         { info: "успешная оплата услуг", cost: servicePrice }
       );
       onClose(value);
