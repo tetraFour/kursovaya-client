@@ -18,7 +18,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 
 import { useStyles } from "./paymentServices.styles";
 
-import url from "../../utils/apiUrl";
+import { url } from "../../utils/apiUrl";
 
 export default function PaymentServices({ userUniqueId }) {
   const [rows, setRows] = useState([]);

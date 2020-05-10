@@ -18,7 +18,7 @@ import { useStyles } from "./paymentServices.styles";
 
 import { useSnackbar } from "notistack";
 
-import url from "../../utils/apiUrl";
+import { url } from "../../utils/apiUrl";
 
 const PaymentServicesList = ({ serviceName, servicePrice, userUniqueId }) => {
   const [open, setOpen] = useState(false);

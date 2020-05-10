@@ -11,7 +11,7 @@ import Paper from "@material-ui/core/Paper";
 import { useStyles } from "./paymentHistory.style";
 import axios from "axios";
 
-import url from "../../utils/apiUrl";
+import { url } from "../../utils/apiUrl";
 
 function createData(name, calories, fat, carbs, protein) {
   return { name, calories, fat, carbs, protein };

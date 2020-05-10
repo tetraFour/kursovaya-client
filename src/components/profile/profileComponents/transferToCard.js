@@ -18,7 +18,7 @@ import { useSnackbar } from "notistack";
 
 import { useStyles } from "./styles";
 
-import url from "../../../utils/apiUrl";
+import { url } from "../../../utils/apiUrl";
 
 function ConfirmationDialogRaw(props) {
   const {

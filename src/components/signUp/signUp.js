@@ -14,7 +14,7 @@ import { useSnackbar } from "notistack";
 
 import { useStyles } from "./signUp.styles";
 
-import url from "../../utils/apiUrl";
+import { url } from "../../utils/apiUrl";
 
 const CREATE_USER_URL = `${url}/auth/createUser`;
 export default function SignUp() {

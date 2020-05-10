@@ -14,7 +14,7 @@ import { useSnackbar } from "notistack";
 
 import { useStyles } from "./signIn.styles";
 
-import url from "../../utils/apiUrl";
+import { url } from "../../utils/apiUrl";
 
 const GET_TOKEN_URL = `${url}/auth/getToken`;
 

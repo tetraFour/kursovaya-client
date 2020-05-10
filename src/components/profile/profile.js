@@ -12,7 +12,7 @@ import Typography from "@material-ui/core/Typography";
 
 import { useStyles } from "./profile.styles";
 
-import url from "../../utils/apiUrl";
+import { url } from "../../utils/apiUrl";
 
 const URL_GET_USER_WITH_TOKEN = `${url}/auth/getUser`;
 

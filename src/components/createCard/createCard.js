@@ -14,7 +14,7 @@ import axios from "axios";
 
 import { useSnackbar } from "notistack";
 
-import url from "../../utils/apiUrl";
+import { url } from "../../utils/apiUrl";
 
 export default function PaymentForm({ userUniqueId }) {
   const { enqueueSnackbar } = useSnackbar();

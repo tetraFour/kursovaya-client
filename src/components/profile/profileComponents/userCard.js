@@ -27,7 +27,7 @@ import { useStyles } from "./styles";
 
 import axios from "axios";
 
-import url from "../../../utils/apiUrl";
+import { url } from "../../../utils/apiUrl";
 
 const UserCard = ({ card, getCards, allCards, userUniqueId }) => {
   const { enqueueSnackbar } = useSnackbar();
