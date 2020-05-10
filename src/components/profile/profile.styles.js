@@ -7,7 +7,13 @@ export const useStyles = makeStyles(() => ({
   profileTitleWrapper: {
     display: "flex",
     alignItems: "center",
-    justifyContent: "space-between",
+    justifyContent: "flex-start",
     marginBottom: "50px",
+  },
+  profileTitle: {
+    marginRight: "auto",
+  },
+  userSettings: {
+    marginRight: "20px",
   },
 }));

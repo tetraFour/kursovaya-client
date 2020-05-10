@@ -6,6 +6,8 @@ import axios from "axios";
 
 import CardList from "./profileComponents/cardList";
 
+import UserSettings from "./profileComponents/userSettings";
+
 import Button from "@material-ui/core/Button";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
@@ -23,7 +25,7 @@ const Profile = ({ setIsAuth, userUniqueId }) => {
 
   const [userCards, setUserCards] = useState([]);
 
-  const [userID, setUserID] = useState(null);
+  // const [userID, setUserID] = useState(null);
 
   // console.log(userUniqueId);
   const signOutHandleClick = () => {
@@ -75,10 +77,18 @@ const Profile = ({ setIsAuth, userUniqueId }) => {
   return (
     <Container className={classes.container}>
       <div className={classes.profileTitleWrapper}>
-        <Typography variant="h2" component="h3">
+        <Typography
+          variant="h2"
+          component="h3"
+          className={classes.profileTitle}
+        >
           Здравствуйте, {userAuth.login}
         </Typography>
-
+        <UserSettings
+          userUniqueId={userUniqueId}
+          userAuth={userAuth}
+          getUser={getUser}
+        />
         <Button
           variant="contained"
           color="secondary"
