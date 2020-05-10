@@ -27,6 +27,8 @@ import { useStyles } from "./styles";
 
 import axios from "axios";
 
+import url from "../../../utils/apiUrl";
+
 const UserCard = ({ card, getCards, allCards, userUniqueId }) => {
   const { enqueueSnackbar } = useSnackbar();
 
@@ -109,18 +111,15 @@ const UserCard = ({ card, getCards, allCards, userUniqueId }) => {
 
   const handleSubmitChargeMoney = async () => {
     try {
-      await axios.put(
-        `https://banking-course.herokuapp.com/cards/chargeMoney/${card.id}`,
-        {
-          chargeMoney,
-        }
-      );
+      await axios.put(`${url}/cards/chargeMoney/${card.id}`, {
+        chargeMoney,
+      });
       handleClickOpenSnackbar("успешное начисление средств", "success");
       getCards();
       handleClose();
       handleChargeDialogClose();
       await axios.post(
-        `https://banking-course.herokuapp.com/payment_history/createPaymentHistory/${userUniqueId}`,
+        `${url}/payment_history/createPaymentHistory/${userUniqueId}`,
         { info: "успешное начисление средств", cost: chargeMoney }
       );
     } catch (error) {
@@ -130,18 +129,15 @@ const UserCard = ({ card, getCards, allCards, userUniqueId }) => {
 
   const handleSubmitWithdrawMoney = async () => {
     try {
-      await axios.put(
-        `https://banking-course.herokuapp.com/cards/withdrawMoney/${card.id}`,
-        {
-          withdrawMoney,
-        }
-      );
+      await axios.put(`${url}/cards/withdrawMoney/${card.id}`, {
+        withdrawMoney,
+      });
       handleClickOpenSnackbar("успешное списание средств", "success");
       getCards();
       handleClose();
       handleWithdrawDialogClose();
       await axios.post(
-        `https://banking-course.herokuapp.com/payment_history/createPaymentHistory/${userUniqueId}`,
+        `${url}/payment_history/createPaymentHistory/${userUniqueId}`,
         { info: "успешное списание стредств", cost: withdrawMoney }
       );
     } catch (error) {
@@ -151,14 +147,12 @@ const UserCard = ({ card, getCards, allCards, userUniqueId }) => {
 
   const handleDeleteCard = async () => {
     try {
-      await axios.delete(
-        `https://banking-course.herokuapp.com/cards/deleteCard/${card.id}`
-      );
+      await axios.delete(`${url}/cards/deleteCard/${card.id}`);
       handleClickOpenSnackbar("успешное удаление карты", "success");
       getCards();
       handleClose();
       await axios.post(
-        `https://banking-course.herokuapp.com/payment_history/createPaymentHistory/${userUniqueId}`,
+        `${url}/payment_history/createPaymentHistory/${userUniqueId}`,
         { info: "карта успешно удалена", cost: 0 }
       );
     } catch (error) {

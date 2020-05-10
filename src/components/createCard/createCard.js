@@ -14,6 +14,8 @@ import axios from "axios";
 
 import { useSnackbar } from "notistack";
 
+import url from "../../utils/apiUrl";
+
 export default function PaymentForm({ userUniqueId }) {
   const { enqueueSnackbar } = useSnackbar();
 
@@ -64,7 +66,7 @@ export default function PaymentForm({ userUniqueId }) {
       try {
         await axios({
           method: "post",
-          url: "https://banking-course.herokuapp.com/cards/createCard",
+          url: `${url}/cards/createCard`,
           data: {
             cardOwner: username.value.toUpperCase(),
             cardNumber: cardNumber.value,

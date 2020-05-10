@@ -18,6 +18,8 @@ import { useSnackbar } from "notistack";
 
 import { useStyles } from "./styles";
 
+import url from "../../../utils/apiUrl";
+
 function ConfirmationDialogRaw(props) {
   const {
     onClose,
@@ -63,19 +65,16 @@ function ConfirmationDialogRaw(props) {
     try {
       onClose(value);
       handleClose();
-      const result = await axios.put(
-        `https://banking-course.herokuapp.com/cards/transferMoney/${id}`,
-        {
-          transferMoney,
-          cardNumber: value,
-        }
-      );
+      const result = await axios.put(`${url}/cards/transferMoney/${id}`, {
+        transferMoney,
+        cardNumber: value,
+      });
       await getCards();
       handleClickOpenSnackbar(result.data.responseContent, "success");
-      await axios.post(
-        `https://banking-course.herokuapp.com/payment_history/createPaymentHistory/1`,
-        { info: "успешный перевод на другую карту", cost: transferMoney }
-      );
+      await axios.post(`${url}/payment_history/createPaymentHistory/1`, {
+        info: "успешный перевод на другую карту",
+        cost: transferMoney,
+      });
     } catch (error) {
       handleClickOpenSnackbar(error.response.data.responseContent, "error");
     }

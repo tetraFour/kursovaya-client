@@ -18,6 +18,8 @@ import { useStyles } from "./paymentServices.styles";
 
 import { useSnackbar } from "notistack";
 
+import url from "../../utils/apiUrl";
+
 const PaymentServicesList = ({ serviceName, servicePrice, userUniqueId }) => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(0);
@@ -97,9 +99,7 @@ function ConfirmationDialogRaw(props) {
 
   async function getCards() {
     try {
-      const cards = await axios.get(
-        `https://banking-course.herokuapp.com/cards/getCards/${userUniqueId}`
-      );
+      const cards = await axios.get(`${url}/cards/getCards/${userUniqueId}`);
 
       setUserCards([...cards.data]);
     } catch (error) {
@@ -128,14 +128,11 @@ function ConfirmationDialogRaw(props) {
 
   const handleOk = async () => {
     try {
-      const result = await axios.put(
-        `https://banking-course.herokuapp.com/cards/withdrawMoney/${value}`,
-        {
-          withdrawMoney: servicePrice,
-        }
-      );
+      const result = await axios.put(`${url}/cards/withdrawMoney/${value}`, {
+        withdrawMoney: servicePrice,
+      });
       await axios.post(
-        `https://banking-course.herokuapp.com/payment_history/createPaymentHistory/${userUniqueId}`,
+        `${url}/payment_history/createPaymentHistory/${userUniqueId}`,
         { info: "успешная оплата услуг", cost: servicePrice }
       );
       onClose(value);

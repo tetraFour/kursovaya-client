@@ -11,6 +11,8 @@ import Paper from "@material-ui/core/Paper";
 import { useStyles } from "./paymentHistory.style";
 import axios from "axios";
 
+import url from "../../utils/apiUrl";
+
 function createData(name, calories, fat, carbs, protein) {
   return { name, calories, fat, carbs, protein };
 }
@@ -26,7 +28,7 @@ export default function PaymentHistory({ userUniqueId }) {
 
   const getFetch = async () => {
     const result = await axios.get(
-      `https://banking-course.herokuapp.com/payment_history/getHistory/${userUniqueId}`
+      `${url}/payment_history/getHistory/${userUniqueId}`
     );
     setHistory([...result.data]);
   };

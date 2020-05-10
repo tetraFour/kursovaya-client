@@ -14,7 +14,9 @@ import { useSnackbar } from "notistack";
 
 import { useStyles } from "./signUp.styles";
 
-const CREATE_USER_URL = "https://banking-course.herokuapp.com/auth/createUser";
+import url from "../../utils/apiUrl";
+
+const CREATE_USER_URL = `${url}/auth/createUser`;
 export default function SignUp() {
   const classes = useStyles();
 

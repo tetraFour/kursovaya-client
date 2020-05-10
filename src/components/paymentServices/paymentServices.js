@@ -18,6 +18,8 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 
 import { useStyles } from "./paymentServices.styles";
 
+import url from "../../utils/apiUrl";
+
 export default function PaymentServices({ userUniqueId }) {
   const [rows, setRows] = useState([]);
   const [isProductsLoaded, setIsProductsLoaded] = useState(true);
@@ -29,9 +31,7 @@ export default function PaymentServices({ userUniqueId }) {
     }
     async function getFetch() {
       try {
-        const result = await axios.get(
-          "https://banking-course.herokuapp.com/services/getBankServices"
-        );
+        const result = await axios.get(`${url}/services/getBankServices`);
         setRows(result.data);
         setIsProductsLoaded(true);
       } catch (e) {
