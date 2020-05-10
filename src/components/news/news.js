@@ -10,7 +10,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import { useStyles } from "./newsList.style";
 
 const NEWS_URL =
-  "http://newsapi.org/v2/top-headlines?country=ru&apiKey=b2dd9ebb18cd41f481e282915f4c0ffc";
+  "https://newsapi.org/v2/top-headlines?country=ru&apiKey=b2dd9ebb18cd41f481e282915f4c0ffc";
 
 export default function News() {
   const [news, setNews] = useState([]);
