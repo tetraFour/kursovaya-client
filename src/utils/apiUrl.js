@@ -1,1 +1,1 @@
-export const apiUrl = "https://banking-course.herokuapp.com";
+export default apiUrl = "https://banking-course.herokuapp.com";
